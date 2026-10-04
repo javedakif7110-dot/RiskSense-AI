@@ -1,6 +1,7 @@
 # Dependencies
 node_modules/
 frontend/node_modules/
+node_standalone/
 
 # Python
 __pycache__/
