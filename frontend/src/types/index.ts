@@ -13,6 +13,7 @@ export interface PredictionResponse {
   confidence?: number;
   message: string;
   probabilities?: Record<string, number>;
+  is_offline?: boolean;
 }
 
 export type NavigationTab = 'home' | 'about' | 'project-info' | 'team';

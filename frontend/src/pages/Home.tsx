@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { InputCard } from '../components/InputCard';
 import { PredictionCard } from '../components/PredictionCard';
 import { InfoCards } from '../components/InfoCards';
@@ -15,18 +15,13 @@ export const Home: React.FC = () => {
     gpa: '8.2'
   });
 
-  const [prediction, setPrediction] = useState<PredictionResponse | null>({
-    risk_level: 'Low',
-    confidence: 88.5,
-    message: 'The student is likely to perform well based on the given academic details.'
-  });
-
+  const [prediction, setPrediction] = useState<PredictionResponse | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const handlePredict = async () => {
+  const handlePredict = async (dataToPredict: StudentInputData = inputData) => {
     setIsLoading(true);
     try {
-      const res = await getRiskPrediction(inputData);
+      const res = await getRiskPrediction(dataToPredict);
       setPrediction(res);
     } catch (err) {
       console.error('Prediction failed:', err);
@@ -35,6 +30,11 @@ export const Home: React.FC = () => {
     }
   };
 
+  // Run initial prediction on mount so prediction matches initial inputs
+  useEffect(() => {
+    handlePredict(inputData);
+  }, []);
+
   return (
     <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Two main cards side by side */}
@@ -42,7 +42,7 @@ export const Home: React.FC = () => {
         <InputCard
           inputData={inputData}
           setInputData={setInputData}
-          onPredict={handlePredict}
+          onPredict={() => handlePredict(inputData)}
           isLoading={isLoading}
         />
         <PredictionCard
@@ -57,3 +57,4 @@ export const Home: React.FC = () => {
     </main>
   );
 };
+
