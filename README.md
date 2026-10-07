@@ -53,10 +53,10 @@ Early identification of students who may be at academic risk allows educational 
 
 | Metric | Decision Tree (Baseline `max_depth=5`) | Random Forest (Final `n_estimators=100, max_depth=8`) |
 | :--- | :---: | :---: |
-| **Accuracy** | **83.80%** | **87.40%** |
-| **Precision** | **83.25%** | **88.64%** |
-| **Recall** | **82.82%** | **86.32%** |
-| **F1-Score** | **83.02%** | **87.34%** |
+| **Accuracy** | **57.0%** | **71.6%** |
+| **Precision** | **57.50%** | **71.77%** |
+| **Recall** | **57.0%** | **71.6%** |
+| **F1-Score** | **57.11%** | **71.68%** |
 
 ---
 

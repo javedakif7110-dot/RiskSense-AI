@@ -61,16 +61,16 @@ def get_model_info():
         features_count=5,
         dataset_records=2500,
         baseline_metrics=MetricDetail(
-            accuracy=83.80,
-            precision=83.25,
-            recall=82.82,
-            f1_score=83.02
+            accuracy=57.0,
+            precision=57.50,
+            recall=57.0,
+            f1_score=57.11
         ),
         final_metrics=MetricDetail(
-            accuracy=87.40,
-            precision=88.64,
-            recall=86.32,
-            f1_score=87.34
+            accuracy=71.6,
+            precision=71.77,
+            recall=71.6,
+            f1_score=71.68
         )
     )
 
